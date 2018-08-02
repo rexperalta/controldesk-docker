@@ -1,9 +1,9 @@
-# Building and deploying an IBM Maximo Asset Management V7.6 with Feature Pack image to Docker
+# Building and deploying an IBM Control Desk V7.6 image to Docker
 ------------------------------------------------------------------------------------
 
-Maximo on Docker enables to run Maximo Asset Management on Docker. The images are deployed fine-grained services instead of single instance. The following instructions describe how to set up IBM Maximo Asset Management V7.6 Docker images. This images consist of several components e.g. WebSphere, Db2, and Maximo installation program.
+Control Desk on Docker enables to run IBM Control Desk on Docker. The images are deployed fine-grained services instead of single instance. The following instructions describe how to set up IBM Control Desk V7.6 Docker images. This images consist of several components e.g. WebSphere, DB2, and Control Desk installation program.
 
-![Componets of Docker Images](https://raw.githubusercontent.com/nishi2go/maximo-docker/master/maximo-docker.png)
+![Componets of Docker Images](https://raw.githubusercontent.com/rexperalta/controldesk-docker/master/maximo-docker.png)
 
 ## Required packages
 --------------------
@@ -13,9 +13,9 @@ Maximo on Docker enables to run Maximo Asset Management on Docker. The images ar
   IBM Installation Manager binaries:
   * agent.installer.linux.gtk.x86_64_1.8.0.20140902_1503.zip
 
-* IBM Maximo Asset Management V7.6 binaries from [Passport Advantage](http://www-01.ibm.com/software/passportadvantage/pao_customer.html)
+* IBM Control Desk V7.6 binaries from [Passport Advantage](http://www-01.ibm.com/software/passportadvantage/pao_customer.html)
 
-  IBM Maximo Asset Management V7.6 binaries:
+  IBM Control Desk V7.6 binaries:
   * MAM_7.6.0.0_LINUX64.tar.gz
 
   IBM WebSphere Application Server traditional V9 binaries:
@@ -33,7 +33,7 @@ Maximo on Docker enables to run Maximo Asset Management on Docker. The images ar
 
 * Feature Pack/Fix Pack binaries from [Fix Central](http://www-933.ibm.com/support/fixcentral/)
 
-  IBM Maximo Asset Management V7.6 Feature Pack 9 binaries:
+  IBM Control Desk V7.6 Feature Pack 9 binaries:
   * MAMMTFP7609IMRepo.zip
 
   IBM WebSphere Application Server traditional Fixpack V9.0.0.7 binaries:
@@ -48,7 +48,7 @@ Maximo on Docker enables to run Maximo Asset Management on Docker. The images ar
   IBM Db2 Server V11.1 Fix Pack 3
   * v11.1.3fp3_linuxx64_server_t.tar.gz
 
-## Building the IBM Maximo Asset Management V7.6 image
+## Building the IBM Control Desk V7.6 image
 ------------------------------------------------------
 
 Prereq: all binaries should be accessible via a web server during building phase.
@@ -65,11 +65,11 @@ Prereq: all binaries should be accessible via a web server during building phase
     ```
 4. Clone this repository
     ```bash
-    git clone https://github.com/nishi2go/maximo-docker.git
+    git clone https://github.com/rexperalta/controldesk-docker.git
     ```
 5. Move to the directory
     ```bash
-    cd maximo-docker
+    cd controldesk-docker
     ```
 6. Build Docker images:
     Build Db2 image:
@@ -92,7 +92,7 @@ Prereq: all binaries should be accessible via a web server during building phase
     ```bash
     docker build -t maximo/maxweb:9.0.0.7 -t maximo/maxweb:latest --network build maxweb
     ```
-    Build Maximo Asset Management Installation image:
+    Build Control Desk Installation image:
     ```bash
     docker build -t maximo/maximo:7.6.0.9 -t maximo/maximo:latest --network build maximo
     ```
