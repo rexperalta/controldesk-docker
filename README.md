@@ -16,7 +16,8 @@ Control Desk on Docker enables to run IBM Control Desk on Docker. The images are
 * IBM Control Desk V7.6 binaries from [Passport Advantage](http://www-01.ibm.com/software/passportadvantage/pao_customer.html)
 
   IBM Control Desk V7.6 binaries:
-  * MAM_7.6.0.0_LINUX64.tar.gz
+  * CD_V760_1of2_Mltptfrm.tar
+  * CD_V760_2of2_Mltptfrm.tar
 
   IBM WebSphere Application Server traditional V9 binaries:
   * WAS_ND_V9.0_MP_ML.zip
