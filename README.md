@@ -80,11 +80,11 @@ Prereq: all binaries should be accessible via a web server during building phase
 6. Build Docker images:
     Build DB2 image:
     ```bash
-    docker build -t maximo/db2:10.5.0.9 -t maximo/db2:latest --network build maxdb
+    docker build -t controldesk/db2:10.5.0.9 -t controldesk/db2:latest --network build maxdb
     ```
     Build WebSphere Application Server base image:
     ```bash
-    docker build -t maximo/maxwas:8.5.5.12 -t maximo/maxwas:latest --network build maxwas
+    docker build -t controldesk/maxwas:8.5.5.12 -t controldesk/maxwas:latest --network build maxwas
     ```
     Build WebSphere Application Server Deployment Manager image:
     ```bash
