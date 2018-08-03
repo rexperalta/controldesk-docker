@@ -3,7 +3,7 @@
 
 Maximo on Docker enables to run Control Desk on Docker. The images are deployed fine-grained services instead of single instance. The following instructions describe how to set up IBM Control Desk V7.6 Docker images. This images consist of several components e.g. WebSphere, DB2, and Maximo installation program.
 
-![Componets of Docker Images](https://raw.githubusercontent.com/rexperalta/controldesk-docker/wasv8-db2v105/controldesk-docker.png)
+![Componets of Docker Images](https://raw.githubusercontent.com/rexperalta/controldesk-docker/wasv8-db2v105/maximo-docker.png)
 
 ## Required packages
 --------------------
