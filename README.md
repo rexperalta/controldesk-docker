@@ -51,8 +51,8 @@ Maximo on Docker enables to run Control Desk on Docker. The images are deployed 
   IBM WebSphere SDK Java Technology Edition V7.1.4.5 binaries:
   * 7.1.4.5-WS-IBMWASJAVA-Linux.zip
 
-  IBM DB2 Server V10.5 Fix Pack 9
-  * v10.5fp9_linuxx64_server_t.tar.gz
+  IBM DB2 Server V10.5 Fix Pack 10
+  * v10.5fp10_linuxx64_server_t.tar.gz
 
 ## Building the IBM Control Desk V7.6 image
 ------------------------------------------------------
