@@ -88,19 +88,19 @@ Prereq: all binaries should be accessible via a web server during building phase
     ```
     Build WebSphere Application Server Deployment Manager image:
     ```bash
-    docker build -t maximo/maxdmgr:8.5.5.12 -t maximo/maxdmgr:latest maxdmgr
+    docker build -t controldesk/maxdmgr:8.5.5.12 -t controldesk/maxdmgr:latest maxdmgr
     ```
     Build WebSphere Application Server AppServer image:
     ```bash
-    docker build -t maximo/maxapps:8.5.5.12 -t maximo/maxapps:latest maxapps
+    docker build -t controldesk/maxapps:8.5.5.12 -t controldesk/maxapps:latest maxapps
     ```
     Build IBM HTTP Server image:
     ```bash
-    docker build -t maximo/maxweb:8.5.5.12 -t maximo/maxweb:latest --network build maxweb
+    docker build -t controldesk/maxweb:8.5.5.12 -t controldesk/maxweb:latest --network build maxweb
     ```
     Build Control Desk Installation image:
     ```bash
-    docker build -t maximo/maximo:7.6.0.9 -t maximo/maximo:latest --network build maximo
+    docker build -t controldesk/maximo:7.6.0.9 -t controldesk/maximo:latest --network build maximo
     ```
     Note: If the build has failed during Maximo Feature Pack installation, run the docker build again.
 7. Run containers by using the Docker Compose file to create and deploy instances:
