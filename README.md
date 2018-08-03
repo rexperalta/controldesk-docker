@@ -80,7 +80,7 @@ Prereq: all binaries should be accessible via a web server during building phase
 6. Build Docker images:
     Build DB2 image:
     ```bash
-    docker build -t controldesk/db2:10.5.0.9 -t controldesk/db2:latest --network build maxdb
+    docker build -t controldesk/db2:10.5.0.10 -t controldesk/db2:latest --network build maxdb
     ```
     Build WebSphere Application Server base image:
     ```bash

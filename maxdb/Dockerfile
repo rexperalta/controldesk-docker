@@ -15,7 +15,7 @@ MAINTAINER Yasutaka Nishimura nishi2go@gmail.com
 
 ARG url=http://images
 
-ARG fp=9
+ARG fp=10
 
 ## Install required software
 RUN yum update -y && yum install -y wget unzip bsdtar nc bc net-tools bind-utils \
