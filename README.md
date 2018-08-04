@@ -38,15 +38,15 @@ Maximo on Docker enables to run Control Desk on Docker. The images are deployed 
   IBM Control Desk V7.6 Feature Pack 9 binaries:
   * MAMMTFP7609IMRepo.zip
 
-  IBM WebSphere Application Server Network Deployment Fixpack V8.5.5.12 binaries:
-  * 8.5.5-WS-WAS-FP012-part1.zip
-  * 8.5.5-WS-WAS-FP012-part2.zip
-  * 8.5.5-WS-WAS-FP012-part3.zip
+  IBM WebSphere Application Server Network Deployment Fixpack V8.5.5.13 binaries:
+  * 8.5.5-WS-WAS-FP013-part1.zip
+  * 8.5.5-WS-WAS-FP013-part2.zip
+  * 8.5.5-WS-WAS-FP013-part3.zip
 
-  IBM WebSphere Application Server Network Deployment Supplements Fixpack V8.5.5.12 binaries:
-  * 8.5.5-WS-WASSupplements-FP012-part1.zip
-  * 8.5.5-WS-WASSupplements-FP012-part2.zip
-  * 8.5.5-WS-WASSupplements-FP012-part3.zip
+  IBM WebSphere Application Server Network Deployment Supplements Fixpack V8.5.5.13 binaries:
+  * 8.5.5-WS-WASSupplements-FP013-part1.zip
+  * 8.5.5-WS-WASSupplements-FP013-part2.zip
+  * 8.5.5-WS-WASSupplements-FP013-part3.zip
 
   IBM WebSphere SDK Java Technology Edition V7.1.4.5 binaries:
   * 7.1.4.5-WS-IBMWASJAVA-Linux.zip
@@ -84,19 +84,19 @@ Prereq: all binaries should be accessible via a web server during building phase
     ```
     Build WebSphere Application Server base image:
     ```bash
-    docker build -t controldesk/maxwas:8.5.5.12 -t controldesk/maxwas:latest --network build maxwas
+    docker build -t controldesk/maxwas:8.5.5.13 -t controldesk/maxwas:latest --network build maxwas
     ```
     Build WebSphere Application Server Deployment Manager image:
     ```bash
-    docker build -t controldesk/maxdmgr:8.5.5.12 -t controldesk/maxdmgr:latest maxdmgr
+    docker build -t controldesk/maxdmgr:8.5.5.13 -t controldesk/maxdmgr:latest maxdmgr
     ```
     Build WebSphere Application Server AppServer image:
     ```bash
-    docker build -t controldesk/maxapps:8.5.5.12 -t controldesk/maxapps:latest maxapps
+    docker build -t controldesk/maxapps:8.5.5.13 -t controldesk/maxapps:latest maxapps
     ```
     Build IBM HTTP Server image:
     ```bash
-    docker build -t controldesk/maxweb:8.5.5.12 -t controldesk/maxweb:latest --network build maxweb
+    docker build -t controldesk/maxweb:8.5.5.13 -t controldesk/maxweb:latest --network build maxweb
     ```
     Build Control Desk Installation image:
     ```bash

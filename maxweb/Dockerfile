@@ -15,7 +15,7 @@ FROM maximo/maxwas
 MAINTAINER Yasutaka Nishimura nishi2go@gmail.com
 
 ARG url=http://images
-ARG fp=12
+ARG fp=13
 
 WORKDIR /tmp
 

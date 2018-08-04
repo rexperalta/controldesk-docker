@@ -13,7 +13,7 @@
 FROM centos:7
 
 ARG url=http://images
-ARG fp=12
+ARG fp=13
 ARG javafp=7.1.4.5
 
 ENV TEMP /tmp
