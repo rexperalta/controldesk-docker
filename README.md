@@ -11,7 +11,7 @@ Maximo on Docker enables to run Control Desk on Docker. The images are deployed 
 * IBM Installation Manager binaries from [Installation Manager 1.8 download documents](http://www-01.ibm.com/support/docview.wss?uid=swg24037640)
 
   IBM Installation Manager binaries:
-  * agent.installer.linux.gtk.x86_64_1.8.0.20140902_1503.zip
+  * agent.installer.linux.gtk.x86_64_1.8.9001.20180709_1302.zip
 
 * IBM Control Desk V7.6 binaries from [Passport Advantage](http://www-01.ibm.com/software/passportadvantage/pao_customer.html)
 

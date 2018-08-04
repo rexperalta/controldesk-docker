@@ -24,7 +24,7 @@ WORKDIR /tmp
 RUN yum update -y && yum install -y wget unzip nc which && yum clean all
 
 # Install IBM Installation Manager 1.8
-ENV IM_IMAGE agent.installer.linux.gtk.x86_64_1.8.0.20140902_1503.zip
+ENV IM_IMAGE agent.installer.linux.gtk.x86_64_1.8.9001.20180709_1302.zip
 
 RUN mkdir /Install_Mgr && wget -q $url/$IM_IMAGE \
  && unzip -q -d /Install_Mgr $IM_IMAGE \
