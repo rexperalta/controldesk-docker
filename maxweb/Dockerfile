@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM maximo/maxwas
+FROM controldesk/maxwas
 
 MAINTAINER Yasutaka Nishimura nishi2go@gmail.com
 
