@@ -14,7 +14,9 @@ FROM centos:7
 
 ARG url=http://images
 ARG fp=13
-ARG javafp=7.1.4.5
+ARG javaver=80
+ARG javafp=8.0.5.6
+ARG sdkname=1.8_64
 
 ENV TEMP /tmp
 WORKDIR /tmp
@@ -82,19 +84,20 @@ RUN mkdir ${WASFP_BASE_NAME} \
    -preferences com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts=false \
  && rm -rf ${WASFP_BASE_NAME}*
 
-# Install IBM Java SDK 7.1
-ENV JAVA_SDK_NAME ${javafp}-WS-IBMWASJAVA-Linux
+# Install IBM Java SDK
+ENV JAVA_SDK_NAME ${javafp}-WS-IBMWASJAVA
 RUN mkdir ${JAVA_SDK_NAME} \
  && wget -q ${url}/${JAVA_SDK_NAME}.zip \
  && unzip -qd ./${JAVA_SDK_NAME} ${JAVA_SDK_NAME}.zip \
  && rm ${JAVA_SDK_NAME}.zip \
  && /opt/IBM/InstallationManager/eclipse/tools/imcl \
-   -acceptLicense install com.ibm.websphere.IBMJAVA.v71 \
+   -acceptLicense install com.ibm.websphere.IBMJAVA.v${javaver} \
    -repositories /tmp/${JAVA_SDK_NAME}/repository.config \
    -installationDirectory /opt/IBM/WebSphere/AppServer \
    -preferences com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts=false \
  && rm -rf ${JAVA_SDK_NAME}*
 
 ENV PATH /opt/IBM/WebSphere/AppServer/bin:$PATH
-RUN managesdk.sh -setCommandDefault -sdkname 1.7.1_64 \
- && managesdk.sh -setNewProfileDefault -sdkname 1.7.1_64
+#TODO: insert '.' between two digits in javaver
+RUN managesdk.sh -setCommandDefault -sdkname ${sdkname} \
+ && managesdk.sh -setNewProfileDefault -sdkname ${sdkname}
