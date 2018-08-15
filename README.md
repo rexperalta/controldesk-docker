@@ -100,7 +100,7 @@ Prereq: all binaries should be accessible via a web server during building phase
     ```
     Build Control Desk Installation image:
     ```bash
-    docker build -t controldesk/maximo:7.6.0.9 -t controldesk/maximo:latest --network build maximo
+    docker build -t controldesk/maximo:7.6.0.4 -t controldesk/maximo:latest --network build maximo
     ```
     Note: If the build has failed during Maximo Feature Pack installation, run the docker build again.
 7. Run containers by using the Docker Compose file to create and deploy instances:

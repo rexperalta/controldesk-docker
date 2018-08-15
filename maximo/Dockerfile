@@ -14,7 +14,7 @@ FROM centos:7
 
 MAINTAINER Yasutaka Nishimura <nishi2go@gmail.com>
 
-ARG fp=9
+ARG fp=4
 
 ARG url=http://images
 
@@ -26,7 +26,8 @@ RUN yum update -y && yum install -y wget unzip nc which && yum clean all
 # Install IBM Installation Manager 1.8
 ENV IM_IMAGE agent.installer.linux.gtk.x86_64_1.8.9001.20180709_1302.zip
 
-RUN mkdir /Install_Mgr && wget -q $url/$IM_IMAGE \
+RUN mkdir /Install_Mgr \
+ && wget -q $url/$IM_IMAGE \
  && unzip -q -d /Install_Mgr $IM_IMAGE \
  && rm $IM_IMAGE \
  && /Install_Mgr/installc -log /tmp/IM_Install_Unix.xml -acceptLicense \
@@ -38,27 +39,31 @@ RUN /opt/IBM/InstallationManager/eclipse/tools/imcl install com.ibm.cic.agent
 ## Install Maximo middleware and installer
 RUN mkdir /Launchpad
 WORKDIR /Launchpad
+COPY install.xml /Launchpad
 
 ENV BYPASS_PRS=True
 
-## Install Maximo V7.6
-ENV MAM_IMAGE MAM_7.6.0.0_LINUX64.tar.gz
-RUN wget -q $url/$MAM_IMAGE && tar zxpf $MAM_IMAGE \
- && /opt/IBM/InstallationManager/eclipse/tools/imcl \
- -input /Launchpad/SilentResponseFiles/Installer/Unix/ResponseFile_MAM_Install_Unix.xml \
- -acceptLicense -log /tmp/MAM_Install_Unix.xml \
- && rm $MAM_IMAGE
+## Install Control Desk V7.6
+RUN for file in CD_V760_1of2_Mltptfrm.tar CD_V760_2of2_Mltptfrm.tar SCCD_V7.5.1_TDI_ITEGRTN_MP_ML.tar; do \
+  wget -q $url/$file; \
+  tar xf $file; \
+  rm $file; \
+done
 
-## Install Maximo V7.6.0.7 feature packs
+RUN /opt/IBM/InstallationManager/eclipse/tools/imcl input /Launchpad/install.xml \
+ -log /tmp/ICD_Install_Unix.xml \
+ -acceptLicense
+
+## Install Control Desk fix pack
 RUN mkdir /work
 WORKDIR /work
-ENV MAM_FP_IMAGE MAMMTFP760${fp}IMRepo.zip
-
-RUN wget -q $url/$MAM_FP_IMAGE && sleep 30 \
- && /opt/IBM/InstallationManager/eclipse/tools/imcl install \
- com.ibm.tivoli.tpae.base.mam.main -repositories /work/$MAM_FP_IMAGE \
- -installationDirectory /opt/IBM/SMP -log /tmp/FP_Install_Unix.xml -acceptLicense \
- && rm $MAM_FP_IMAGE
+#ENV ICD_FP_IMAGE ICD760${fp}adv.zip
+#RUN wget -q $url/$ICD_FP_IMAGE && sleep 30 \
+# && /opt/IBM/InstallationManager/eclipse/tools/imcl install \
+# -input /work/${ICD_RESPONSEFILE} \
+# -acceptLicense \
+# -log /tmp/FP_Install_Unix.xml \
+# && rm $ICD_FP_IMAGE
 
 ENV MAXADMIN_PASSWORD maxadmin
 ENV MAXREG_PASSWORD maxreg
@@ -97,3 +102,4 @@ COPY SetAutoRestart.py /opt
 COPY startinstall.sh /work
 RUN chmod +x startinstall.sh
 ENTRYPOINT ["/work/startinstall.sh"]
+

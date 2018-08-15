@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<agent-input>
+  <variables>
+    <variable name='sharedLocation' value='/opt/IBM/IBMIMShared'/>
+  </variables>
+  <server>
+    <repository location='/Launchpad/Install/ControlDeskRepo'/>
+    <repository location='/Launchpad/Install/ControlDeskOptionalContentRepo'/>
+    <repository location='/Launchpad/Install/ServiceProviderRepo/ServiceProviderInstallerRepository.zip'/>
+  </server>
+  <profile id='IBM   Tivoli&apos;s process automation suite' installLocation='/opt/IBM/SMP'>
+    <data key='cic.selector.arch' value='x86_64'/>
+    <data key='user.TpaeCompatiblePkgVersion' value='7.5.0.7'/>
+    <data key='user.mifCompatiblePkgVersion' value='7.5.0.7'/>
+    <data key='user.TPAECurrentVersion' value='7.6.0.0'/>
+    <data key='user.TpaeUpgradeMinVersion' value='7.5.0'/>
+    <data key='user.partialUninstallMsg' value='Partial uninstall of this component is not supported.'/>
+    <data key='user.TpaeWasInstalled' value='false'/>
+    <data key='user.TpaeWasInstalling' value='false'/>
+    <data key='user.ProfileID' value='IBM  Tivoli&apos;s process automation suite'/>
+    <data key='user.IATpaeInstalled' value='false'/>
+    <data key='user.IA_TPAE_GONE' value='false'/>
+    <data key='user.TpaeBaseProductName' value='tpae_base'/>
+    <data key='user.TPAEPreviousVersion' value='0'/>
+    <data key='user.TPAEInstAction' value='install'/>
+    <data key='user.TPAEUninstSetting' value='any'/>
+    <data key='user.nullPreviousVersion,com.ibm.tivoli.tpae.IS.null' value='0'/>
+    <data key='user.nullInstAction,com.ibm.tivoli.tpae.IS.null' value='install'/>
+  </profile>
+  <install>
+    <!-- IBM Control Desk 7.6.0.0 -->
+    <offering profile='IBM   Tivoli&apos;s process automation suite' id='com.ibm.tivoli.tpae.base.icd.adv.main' version='7.6.0.0' features='TPAEWin32bitSupport.feature,main.feature,java.feature,help.feature,configTool.feature'/>
+    <!-- IBM Control Desk Optional Content 7.6.0.0 -->
+    <offering profile='IBM   Tivoli&apos;s process automation suite' id='com.ibm.tivoli.tpae.base.icd.options.main' version='7.6.0.0' features='main.feature'/>
+    <!-- IBM Maximo for Service Providers 7.6.0 -->
+    <offering profile='IBM   Tivoli&apos;s process automation suite' id='com.ibm.tivoli.tpae.IS.ServiceProvider' version='7.6.0.0' features='main.feature'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+</agent-input>

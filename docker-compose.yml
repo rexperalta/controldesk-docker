@@ -1,7 +1,7 @@
 version: '3'
 services:
   maxdb:
-    image: maximo/db2
+    image: controldesk/db2
     hostname: maxdb
     environment:
     - CTGINST1_PASSWORD=changeit
@@ -15,7 +15,7 @@ services:
     - maxdb76:/home/ctginst1/ctginst1
     - vardb2:/var/db2
   maxdmgr:
-    image: maximo/maxdmgr
+    image: controldesk/maxdmgr
     hostname: maxdmgr
     ports:
     - 9043:9043
@@ -24,7 +24,7 @@ services:
     networks:
     - maxnet
   maxapps:
-    image: maximo/maxapps
+    image: controldesk/maxapps
     hostname: maxapps
     environment:
     - DMGR_ADMIN_PASSWORD=changeit
@@ -36,7 +36,7 @@ services:
     networks:
     - maxnet
   maxweb:
-    image: maximo/maxweb
+    image: controldesk/maxweb
     hostname: maxweb
     environment:
     - DMGR_ADMIN_PASSWORD=changeit
@@ -47,7 +47,7 @@ services:
     networks:
     - maxnet
   maximo:
-    image: maximo/maximo
+    image: controldesk/maximo
     hostname: maximo
     environment:
     - DMGR_ADMIN_PASSWORD=changeit
